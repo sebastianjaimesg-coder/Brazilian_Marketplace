@@ -36,3 +36,12 @@ CREATE TABLE products (
     product_height_cm INT,
     product_width_cm INT
 );
+
+
+-- Sellers
+CREATE TABLE sellers (
+    seller_id VARCHAR(50) PRIMARY KEY,
+    seller_zip_code_prefix INT,
+    seller_city VARCHAR(50),
+    seller_state VARCHAR(2)
+);
