@@ -72,3 +72,15 @@ CREATE TABLE payments (
     FOREIGN KEY (order_id) REFERENCES orders(order_id)
 );
 
+-- Reviews
+CREATE TABLE reviews (
+    review_id VARCHAR(50) PRIMARY KEY,
+    order_id VARCHAR(50),
+    review_score INT,
+    review_comment_title TEXT,
+    review_comment_message TEXT,
+    review_creation_date DATETIME,
+    review_answer_timestamp DATETIME,
+    FOREIGN KEY (order_id) REFERENCES orders(order_id)
+);
+
