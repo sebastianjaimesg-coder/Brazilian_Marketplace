@@ -61,3 +61,14 @@ CREATE TABLE order_items (
     FOREIGN KEY (seller_id) REFERENCES sellers(seller_id)
 );
 
+-- Payments
+CREATE TABLE payments (
+    order_id VARCHAR(50),
+    payment_sequential INT,
+    payment_type VARCHAR(20),
+    payment_installments INT,
+    payment_value DECIMAL(10,2),
+    PRIMARY KEY (order_id, payment_sequential),
+    FOREIGN KEY (order_id) REFERENCES orders(order_id)
+);
+
