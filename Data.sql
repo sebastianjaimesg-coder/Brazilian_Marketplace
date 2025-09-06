@@ -84,3 +84,12 @@ CREATE TABLE reviews (
     FOREIGN KEY (order_id) REFERENCES orders(order_id)
 );
 
+-- Geolocation 
+CREATE TABLE geolocation (
+    geolocation_zip_code_prefix INT,
+    geolocation_lat DECIMAL(9,6),
+    geolocation_lng DECIMAL(9,6),
+    geolocation_city VARCHAR(50),
+    geolocation_state VARCHAR(2)
+);
+
