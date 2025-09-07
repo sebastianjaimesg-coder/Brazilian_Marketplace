@@ -93,3 +93,11 @@ CREATE TABLE geolocation (
     geolocation_state VARCHAR(2)
 );
 
+--Enable local
+
+SHOW GLOBAL VARIABLES LIKE 'local_infile'; 
+
+--If the local is off, we should enable it with (temporarily):
+SET GLOBAL local_infile = 1;
+
+SHOW GLOBAL VARIABLES LIKE 'local_infile';
