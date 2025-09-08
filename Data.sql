@@ -101,3 +101,16 @@ SHOW GLOBAL VARIABLES LIKE 'local_infile';
 SET GLOBAL local_infile = 1;
 
 SHOW GLOBAL VARIABLES LIKE 'local_infile';
+
+
+
+import pandas as pd
+from sqlalchemy import create_engine
+
+# connect to MySQL
+engine = create_engine("mysql+mysqlconnector://root:password@localhost/olist_db")
+
+# load CSV in chunks
+for chunk in pd.read_csv("olist_customers_dataset.csv", chunksize=50000):
+    chunk.to_sql(name="customers", con=engine, if_exists="append", index=False)
+
