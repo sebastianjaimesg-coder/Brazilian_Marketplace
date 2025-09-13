@@ -68,8 +68,7 @@ sellers   --< order_items
 - New vs returning customers.  
 - Delivery performance (estimated vs actual).  
 
-👉 [Click here to view the interactive dashboard](#)  
-*(replace with your Power BI Public link)*  
+ 
 
 ---
 
