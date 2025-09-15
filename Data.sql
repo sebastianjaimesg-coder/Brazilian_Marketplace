@@ -157,15 +157,14 @@ IGNORE 1 ROWS
  order_delivered_customer_date, order_estimated_delivery_date);
 
 
--- Orders
-CREATE TABLE orders (
-    order_id VARCHAR(50) PRIMARY KEY,
-    customer_id VARCHAR(50),
-    order_status VARCHAR(20),
-    order_purchase_timestamp DATETIME,
-    order_approved_at DATETIME,
-    order_delivered_carrier_date DATETIME,
-    order_delivered_customer_date DATETIME,
-    order_estimated_delivery_date DATETIME,
-    FOREIGN KEY (customer_id) REFERENCES customers(customer_id)
+import pandas as pd
+from sqlalchemy import create_engine
+
+# connect to MySQL
+engine = create_engine("mysql+mysqlconnector://root:password@localhost/olist_db")
+
+# load CSV in chunks
+for chunk in pd.read_csv("olist_customers_dataset.csv", chunksize=50000):
+    chunk.to_sql(name="customers", con=engine, if_exists="append", index=False)
+
 
