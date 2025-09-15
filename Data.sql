@@ -167,4 +167,10 @@ engine = create_engine("mysql+mysqlconnector://root:password@localhost/olist_db"
 for chunk in pd.read_csv("olist_customers_dataset.csv", chunksize=50000):
     chunk.to_sql(name="customers", con=engine, if_exists="append", index=False)
 
+LOAD DATA LOCAL INFILE 'C:/Users/King/Documents/olist/olist_customers_dataset.csv'
+INTO TABLE customers
+FIELDS TERMINATED BY ','
+ENCLOSED BY '"'
+LINES TERMINATED BY '\n'
+IGNORE 1 ROWS;
 
