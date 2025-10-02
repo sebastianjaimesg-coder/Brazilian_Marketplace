@@ -212,3 +212,15 @@ CREATE TABLE orders (
     order_estimated_delivery_date DATETIME,
     FOREIGN KEY (customer_id) REFERENCES customers(customer_id)
 );
+
+
+-- Products
+CREATE TABLE nswitch (
+    product_id VARCHAR(50) PRIMARY KEY,
+    product_category_name VARCHAR(100),
+    product_name_lenght INT,
+    product_height_cm INT,
+    product_width_cm INT
+);
+
+
