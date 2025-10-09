@@ -215,8 +215,8 @@ CREATE TABLE orders (
     FOREIGN KEY (customer_id) REFERENCES customers(customer_id)
 );
 
--- Orders
-CREATE TABLE orders (
+-- Others
+CREATE TABLE Others (
     order_id VARCHAR(50) PRIMARY KEY,
     customer_id VARCHAR(50),
     order_status VARCHAR(20),
